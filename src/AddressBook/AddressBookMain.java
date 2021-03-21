@@ -145,10 +145,8 @@ public class AddressBookMain{
                     System.out.println(ad);
                     counter=true;
                     break;
-
             }
         }while (!counter);
         ad.displayAddressBook();
-
     }
 }
