@@ -6,22 +6,51 @@ import java.util.Scanner;
 public class AddressBookMain{
     ArrayList<Person>personInfoArrayList=new ArrayList<Person>();
     private final static Scanner sc = new Scanner(System.in);
-    public void addPersonInfo(){
-        System.out.println("Add First name");
-        String firstName=sc.nextLine();
-        System.out.println("Add Last name");
-        String lastName=sc.nextLine();
-        System.out.println("Add City");
-        String city=sc.nextLine();
-        System.out.println("Add State");
-        String state=sc.nextLine();
-        System.out.println("Add zipCode");
-        String zipCode=sc.nextLine();
-        System.out.println("Add PhoneNumber");
-        String phoneNumber=sc.nextLine();
-        Person p = new Person(firstName,lastName,city,state,zipCode,phoneNumber);
-        personInfoArrayList.add(p);
 
+    public void addPersonInfo(){
+        int check=0;
+        String firstName = null;
+        String lastName,city,state,zipCode,phoneNumber;
+        while(check==0) {
+            System.out.print("add first name : ");
+            firstName = sc.nextLine();
+            if (checkExists(firstName)) {
+                System.out.println(" firstname already exist cannot be added ");
+            }
+            else {
+                check=1;
+            }
+        }
+
+        System.out.println("Add Last name");
+        lastName=sc.nextLine();
+        System.out.println("Add City");
+        city=sc.nextLine();
+        System.out.println("Add State");
+        state=sc.nextLine();
+        System.out.println("Add zipCode");
+        zipCode=sc.nextLine();
+        System.out.println("Add PhoneNumber");
+        phoneNumber=sc.nextLine();
+        Person personAdded = new Person(firstName,lastName,city,state,zipCode,phoneNumber);
+        personInfoArrayList.add(personAdded);
+    }
+    public boolean checkExists(String namecheck)
+    {
+        int flag=0;
+        for (Person p: personInfoArrayList)
+        {
+            if (p.getFirstName().equals(namecheck))
+            {
+                flag=1;
+                break;
+            }
+        }
+        if (flag==1)
+        {
+            return true;
+        }
+        return false;
     }
     public void editperson(){
         Person editPersonArray=new Person("","","","","","");
@@ -71,7 +100,7 @@ public class AddressBookMain{
 
     }
     public void displayAddressBook(){
-        for(Person p:personInfoArrayList){
+        for(Person p:personInfoArrayList) {
             System.out.println(p);
         }
     }
@@ -79,8 +108,7 @@ public class AddressBookMain{
         System.out.println("Enter first name of the person you want to delete");
         String nameinput=sc.nextLine();
         for(Person p:personInfoArrayList){
-            if(p.getFirstName().equals(nameinput))
-            {
+            if(p.getFirstName().equals(nameinput)){
                 System.out.println("Match found ! Now deleting");
                 personInfoArrayList.remove(p);
             }
@@ -88,7 +116,8 @@ public class AddressBookMain{
                 System.out.println("No name found");
         }
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         boolean counter=false;
         AddressBookMain ad=new AddressBookMain();
         do{
@@ -98,7 +127,7 @@ public class AddressBookMain{
             System.out.println("Press 4 - Exit");
             int option=sc.nextInt();
             sc.nextLine();
-            switch (option) {
+            switch (option){
                 case 1:
                     ad.addPersonInfo();
                     ad.displayAddressBook();
