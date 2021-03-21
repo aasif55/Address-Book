@@ -15,9 +15,18 @@ public  class Person {
         this.state = state;
         this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
+
     }
 
-    public String getLastName(String lname) {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
         return lastName;
     }
 
@@ -57,13 +66,6 @@ public  class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFirstName(String firstname) {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     @Override
     public String toString() {
