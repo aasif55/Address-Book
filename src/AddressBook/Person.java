@@ -5,10 +5,10 @@ public  class Person {
     private String lastName;
     public String city;
     public String state;
-    public int zipCode;
+    public String zipCode;
     public String phoneNumber;
 
-    public Person(String firstName, String lastName, String city, String state, int zipCode, String phoneNumber) {
+    public Person(String firstName, String lastName, String city, String state, String zipCode, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
@@ -17,7 +17,7 @@ public  class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLastName() {
+    public String getLastName(String lname) {
         return lastName;
     }
 
@@ -41,11 +41,11 @@ public  class Person {
         this.state = state;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -57,7 +57,7 @@ public  class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFirstName() {
+    public String getFirstName(String firstname) {
         return firstName;
     }
 
